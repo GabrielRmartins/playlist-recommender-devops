@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ml-train-gabrielmartins-v1
+  namespace: gabrielmartins
+spec:
+  template:
+    spec:
+      containers:
+        - name: ml-train
+          image: quay.io/garoma20/ml-recommender:0.2
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /mnt/model
+              name: model-volume
+            - mountPath: /app/datasets
+              name: dataset-volume
+      restartPolicy: Never
+      volumes:
+        - name: model-volume
+          persistentVolumeClaim:
+            claimName: pvc-gabrielmartins
+        - name: dataset-volume
+          hostPath:
+            path: /home/datasets/spotify
+            type: Directory
