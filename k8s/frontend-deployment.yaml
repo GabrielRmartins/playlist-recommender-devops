@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-recommender
+  namespace: gabrielmartins
+  labels:
+    app: frontend-recommender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-recommender
+  template:
+    metadata:
+      labels:
+        app: frontend-recommender
+    spec:
+      containers:
+        - name: frontend
+          image: quay.io/garoma20/frontend-recommender:0.2
+          ports:
+            - containerPort: 5000
+          volumeMounts:
+            - mountPath: /mnt/model
+              name: model-volume
+      volumes:
+        - name: model-volume
+          persistentVolumeClaim:
+            claimName: pvc-gabrielmartins
