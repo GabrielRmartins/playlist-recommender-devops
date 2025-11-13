@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: quay.io/garoma20/frontend-recommender:0.3
+          image: quay.io/garoma20/frontend-recommender:0.2
           imagePullPolicy: Always
           env:
             - name: MODEL_PATH
