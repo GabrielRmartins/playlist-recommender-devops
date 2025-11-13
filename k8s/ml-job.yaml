@@ -1,15 +1,26 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: ml-train-gabrielmartins-v1
+  name: ml-train-gabrielmartins-v3
   namespace: gabrielmartins
 spec:
   template:
     spec:
       containers:
         - name: ml-train
-          image: quay.io/garoma20/ml-recommender:0.2
+          image: quay.io/garoma20/ml-recommender:0.3
           imagePullPolicy: Always
+          env:
+            - name: DATASET_PATH
+              valueFrom:
+                configMapKeyRef:
+                  name: recommender-config
+                  key: dataset_path
+            - name: MODEL_PATH
+              valueFrom:
+                configMapKeyRef:
+                  name: recommender-config
+                  key: model_path
           volumeMounts:
             - mountPath: /mnt/model
               name: model-volume

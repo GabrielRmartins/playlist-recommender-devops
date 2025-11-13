@@ -17,7 +17,14 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: quay.io/garoma20/frontend-recommender:0.2
+          image: quay.io/garoma20/frontend-recommender:0.3
+          imagePullPolicy: Always
+          env:
+            - name: MODEL_PATH
+              valueFrom:
+                configMapKeyRef:
+                  name: recommender-config
+                  key: model_path
           ports:
             - containerPort: 5000
           volumeMounts:
