@@ -6,5 +6,5 @@ metadata:
 data:
   dataset_path: "/home/datasets/spotify/2023_spotify_ds1.csv"
   model_path: "/mnt/model/model.pkl"
-  ml_image_tag: "0.3"
-  frontend_image_tag: "0.3"
+  ml_image_tag: "0.2"
+  frontend_image_tag: "0.2"
