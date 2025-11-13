@@ -1,14 +1,14 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: ml-train-gabrielmartins-v0-4
+  name: ml-train-gabrielmartins-v0-5
   namespace: gabrielmartins
 spec:
   template:
     spec:
       containers:
         - name: ml-train
-          image: quay.io/garoma20/ml-recommender:0.4
+          image: quay.io/garoma20/ml-recommender:0.5
           imagePullPolicy: Always
           env:
             - name: DATASET_PATH
