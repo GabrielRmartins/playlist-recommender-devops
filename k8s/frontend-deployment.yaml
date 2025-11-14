@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       annotations:
-    	last-model-update: "v2"
+        last-model-update: "v2"
       labels:
         app: frontend-recommender
     spec:
@@ -36,3 +36,4 @@ spec:
         - name: model-volume
           persistentVolumeClaim:
             claimName: pvc-gabrielmartins
+
