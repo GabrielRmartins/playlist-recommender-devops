@@ -12,6 +12,8 @@ spec:
       app: frontend-recommender
   template:
     metadata:
+      annotations:
+    	last-model-update: "v2"
       labels:
         app: frontend-recommender
     spec:
