@@ -1,8 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    last-model-update: "v2"
   name: frontend-recommender
   namespace: gabrielmartins
   labels:
@@ -14,7 +12,8 @@ spec:
       app: frontend-recommender
   template:
     metadata:
-      
+      annotations:
+    	last-model-update: "v2"
       labels:
         app: frontend-recommender
     spec:
